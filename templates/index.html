@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>BerryDTC</title>
+<link rel="shortcut icon" type="image/x-icon" href="{{url_for('.static', filename='rasp.ico')}}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />   
+<link rel="stylesheet"  type="text/css" href="{{url_for('.static', filename='style.css')}}"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<div id = "wrap">
+    <header>
+        <a href="/"><img id='logo' src="{{url_for('.static', filename='LOGO.png')}}"></a>
+        <!--<a href="https://fontmeme.com/pixel-fonts/"><img src="https://fontmeme.com/permalink/230913/5e76a799242be72621c312a828bf2d82.png" alt="pixel-fonts" border="0"></a>-->
+    </header>
+</div>
+
+<div class="container">
+<div class="row">
+    <link rel="stylesheet" href="https://ethry.xyz/fonts/mc.css">
+
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <h2>Success!</h2>
+        <hr>
+        <div class="pictures">
+            <img id='im1'class="picture" src="{{ url_for('display_image', filename=filename[0]) }}">
+            <img id='im2'class="picture" src="{{ url_for('display_image', filename=filename[1]) }}">
+        </div>
+        <ul>
+            <li>
+                <h4>{{DTK}}</h4>
+            </li>
+        </ul>
+        <hr>
+
+    {% endif %}
+
+
+    {% block content %}
+    <h2>Select a file to upload</h2>
+    <form id="myForm" method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+        <div id="buttons">
+            <button id="submitBtn" type="submit" class="btn btn-info">Submit</button>
+            <button id="HeatsubmitBtn" type="button" class="btn btn-info" onclick="window.location.href='/heat_map';">Heatmap</button>
+        </div>
+    </form>
+    {% endblock %}
+
+    <!--<form style="text-align: right;" action="/heat_map">>
+        <button id="HeatsubmitBtn" type="submit" class="btn btn-info">Heatmap</button>
+    </form>-->
+
+
+    {% block scripts %}
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function() {
+        document.getElementById("submitBtn").style.display = "none";
+        document.getElementById("HeatsubmitBtn").style.display = "none";
+        document.getElementById("br").style.zIndex = "0";
+        document.getElementById("loader").style.display = "block";
+        });
+    </script>
+    {% endblock %}
+
+
+   
+   
+</div>
+</div>
+
+<div id="br" class = "bdiv">
+    <div id="loader">
+        <!--<img src="https://tonusestetic.ru/online-appointment/loading.gif">-->
+        <div class = "loader" > </div>
+    </div>
+</div>
+
+</body>
+</html>

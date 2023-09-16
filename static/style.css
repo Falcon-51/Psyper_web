@@ -1,0 +1,91 @@
+.loader {
+  border: 16px solid #98345439;
+  border-radius: 50%;
+  border-top: 16px solid #453553;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -JS-animation: spin 1s linear infinite; 
+  animation: spin 1s linear infinite;
+  z-index: 1;
+}
+
+
+.pictures{
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#buttons{
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+#logo{
+  margin-top: 13px;
+  margin-left: 10px;
+}
+
+
+#wrap{
+  width: 100%; 
+  height: 70px; 
+}
+
+header{
+	width: 100%;
+	background: #000000;
+	height: 70px;
+ 
+  
+}
+
+#loader{
+  display:none; 
+  position: absolute; 
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0; 
+  margin: auto;
+  z-index: 1;
+}
+
+.bdiv {
+  background-color: rgba(255, 255, 255, 0.61);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+/*@-JS-keyframes spin {
+  0% { -JS-transform: rotate(0deg); }
+  100% { -JS-transform: rotate(360deg); }
+}*/
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+  
+}
+
+@media screen and (max-width: 998px) {
+  .picture {
+    width: 300px;
+    height: 210px;
+  }
+}
