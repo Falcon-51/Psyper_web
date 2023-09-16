@@ -147,6 +147,6 @@ def display_image(filename):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run('172.20.10.2',debug=True)
 
     
