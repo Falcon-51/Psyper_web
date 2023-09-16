@@ -115,7 +115,7 @@ def upload_image():
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         img = Image.open(UPLOAD_FOLDER+filename) # Open image
-        img = img.resize((520, 360)) # Resize image
+        img = img.resize((440, 300)) # Resize image
         img.save(UPLOAD_FOLDER+filename) # Save resized image
 
         model = YOLO('weights/base-m.pt')

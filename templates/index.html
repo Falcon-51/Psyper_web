@@ -30,7 +30,7 @@
         {% endwith %}
     </p>
     {% if filename %}
-        <h2>Success!</h2>
+        <h3>Success!</h3>
         <hr>
         <div class="pictures">
             <img id='im1'class="picture" src="{{ url_for('display_image', filename=filename[0]) }}">
@@ -47,7 +47,7 @@
 
 
     {% block content %}
-    <h2>Select a file to upload</h2>
+    <h3>Select a file to upload</h3>
     <form id="myForm" method="post" action="/" enctype="multipart/form-data">
         <dl>
             <p>
